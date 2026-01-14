@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -26,37 +25,11 @@
 		</div>
 	</nav>
     <!-- navbar -->
+    
 
 
 
-    <!-- hero -->
-	<header class="hero-section d-flex align-items-center">
-        <div class="container-fluid p-0 position-relative h-100">
-            <div class="row g-0 h-100 align-items-center">
-
-                <div class="col-md-5 h-100">
-                    <div class="pizza-container">
-                        <img src="img/hero.png" alt="Fresh Pizza" class="img-fluid pizza-img">
-                    </div>
-                </div>
-
-                <div class="col-md-6 ps-md-3 text-center text-md-start ">
-                    <h1 class="display-3 fw-bold main-headline mb-4">
-                        焼きたての美味しい<br>
-                        ピザを<br>
-                        お客様の手元に。
-                    </h1>
-
-                    <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3">
-                        <a href="/time.php" class="btn btn-filled-custom px-5 py-3 fs-5">今すぐ注文</a>
-                        <a href="/location.php" class="btn btn-outline-custom px-5 py-3 fs-5">店舗情報</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- hero -->
-
+    
 	<script src="js/bootstrap.bundle.min.js"></script>
 
     <!-- Site footer -->
@@ -71,7 +44,7 @@
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <ul class="list-inline mb-0 footer-links">
-                        <li class="list-inline-item"><a href="/location.php">店舗情報</a></li>
+                        <li class="list-inline-item"><a href="/index.php">ホーム</a></li>
                         <li class="list-inline-item"><a href="/time.php">Login</a></li>
                         <li class="list-inline-item"><a href="#">お問い合わせ</a></li>
                     </ul>
@@ -80,5 +53,6 @@
         </div>
     </footer>
 
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
