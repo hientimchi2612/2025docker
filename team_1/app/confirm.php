@@ -136,13 +136,13 @@ h3 {
   padding: 14px;
   font-size: 1.1em;
   background: #e85a00;
-  color: #fff;
+  color: #cfb1b1;
   border: none;
   border-radius: 12px;
   cursor: pointer;
 }
 #submitBtn:disabled {
-  background: #ccc;
+  background: #cfb1b1;
 }
 .back {
   text-align: center;
@@ -154,6 +154,25 @@ h3 {
   .item {
     align-items: flex-start;
   }
+}
+/* ===== SECTION BOX ===== */
+.section-box {
+  background: #fafafa;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px #000;
+}
+
+.section-box h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e2dcdc;
+  padding-bottom: 6px;
+  font-size: 1.1em;
+}
+.section-box p {
+  margin: 6px 0;
 }
 </style>
 </head>
@@ -171,16 +190,18 @@ h3 {
 
 <h2>ご注文内容の確認</h2>
 <p>ご注文内容をご確認の上、「注文を確定する」ボタンを押してください。</p>
-
+<div class="section-box">
 <h3>ご注文商品（編集可）</h3>
 <div id="items"></div>
 <p class="muted">※ 数量変更・削除はこの画面でできます。</p>
-
+</div>
+<div class="section-box">
 <h3>お客様情報</h3>
 <p>お名前：<?= htmlspecialchars($user['name']) ?></p>
 <p>メール：<?= htmlspecialchars($user['email']) ?></p>
 <p>電話：<?= htmlspecialchars($user['phone']) ?></p>
-
+</div>
+<div class="section-box">
 <h3>配送先住所</h3>
 <p>
 〒<?= htmlspecialchars($address['zip']) ?><br>
@@ -190,20 +211,25 @@ h3 {
 <?= htmlspecialchars($address['comment']) ?>
 </p>
 <p><a href="address.php">住所を変更</a></p>
-
+</div>
+<div class="section-box">
 <h3>配達時間</h3>
-<p>
-<?php
-$deliveryTime = $_SESSION['delivery_time'] ?? 'ASAP';
-echo $deliveryTime === 'ASAP'
-  ? 'できるだけ早く（最短30分後）'
-  : '指定時間：' . htmlspecialchars($deliveryTime);
-?>
+<p id="delivery-time-display">
+    <?php
+    $deliveryTime = $_SESSION['delivery_time'] ?? 'ASAP';
+    if ($deliveryTime === 'ASAP') {
+        echo 'できるだけ早く（最短30分後）';
+    } else {
+        echo '指定時間: ' . htmlspecialchars($deliveryTime);
+    }
+    ?>
 </p>
 <p><a href="cart.php">配達時間を変更</a></p>
 
+
 <form method="post" action="order_create.php" id="orderForm">
   <input type="hidden" name="cart_json" id="cartJson">
+  </div>
   <button type="submit" id="submitBtn">注文を確定する</button>
 </form>
 

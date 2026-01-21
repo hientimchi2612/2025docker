@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>注文</title>
+    <title>ありがとうございます。</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -22,10 +22,10 @@
             <div class="collapse navbar-collapse" id="navMenu">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link btn btn-contact rounded-pill px-4 m-2" href="customer_data.php">お問い合わせ</a>
+                        <a class="nav-link btn btn-contact rounded-pill px-4 me-2" href="contact.php">お問い合わせ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-filled-custom rounded-pill px-4 m-2" href="index.php">ホーム</a>
+                        <a class="nav-link btn btn-filled-custom rounded-pill px-4" href="time.php">今すぐ注文</a>
                     </li>
                 </ul>
             </div>
@@ -33,26 +33,36 @@
     </nav>
     <!-- navbar -->
 
-    <!-- body -->
-    <div class="container text-center mt-5">
-        <div class="row">
-            <div class="col container_def_button m-4 fs-1">
-                <a href="shift.php" class="text-decoration-none text-dark d-block">シフト<br>管理</a>
-            </div>
-            <div class="col container_def_button m-4 fs-1">
-                <a href="orders.php" class="text-decoration-none text-dark d-block">注文<br>管理</a>
-            </div>
-            <div class="col container_def_button m-4 fs-1">
-                <a href="menu.php" class="text-decoration-none text-dark d-block">メニュー<br>管理</a>
+    <!-- ================= LOCATION SECTION ================= -->
+    <section class="location-section d-flex align-items-center">
+        <div class="container-fluid position-relative">
+            <div class="row align-items-center justify-content-center">
+
+                <!-- INFO CARD -->
+                <div class="col-md-7">
+                    <div class="location-card">
+                        <div class="text-center fw-bold fs-1">
+                            お問い合わせいただき、<br>
+                            ありがとうございます。<br>
+                            近日中にご連絡いたします。
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center m-3">
+                    <a href="index.php" class="text-decoration-none text-center">
+                    <button type="submit" class="btn btn-filled-custom fw-bold fs-3">ホームに戻る</button>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+    <!-- ================= LOCATION SECTION END ================= -->
+
+
+
 
 
     <script src="js/bootstrap.bundle.min.js"></script>
-    <div class="text-center my-4 fs-1 fw-bold">
-        <a href="logout.php" class="btn btn-danger btn-lg fw-bold">ログアウト</a>
-    </div>
 
     <!-- Site footer -->
     <footer class="site-footer mt-5">
@@ -68,7 +78,7 @@
                     <ul class="list-inline mb-0 footer-links">
                         <li class="list-inline-item"><a href="/index.php">ホーム</a></li>
                         <li class="list-inline-item"><a href="/admin_login.php">Login</a></li>
-                        <li class="list-inline-item"><a href="customer_data.php">お問い合わせ</a></li>
+                        <li class="list-inline-item"><a href="#">お問い合わせ</a></li>
                     </ul>
                 </div>
             </div>
