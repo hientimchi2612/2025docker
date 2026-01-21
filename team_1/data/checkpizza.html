@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カットの注文フォーム</title>
+  <link rel="stylesheet" href="pizza.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1, h2 {
+      color: #333;
+      text-align: center;
+    }
+    form {
+      max-width: 600px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="text"], input[type="tel"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    .form-buttons {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 15px;
+      margin-right: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button#backToCart {
+      background-color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <div class="steps">
+    <div class="step" id="step-cart">カート</div>
+    <div class="step" id="step-info">お客様の情報</div>
+    <div class="step" id="step-confirm">確認</div>
+    <div class="step" id="step-pay">お支払い</div>       
+    <div class="step" id="step-done">注文完了</div>
+  </div>
+
+  <h1>注文を確定する</h1>
+
+  <form action="finish.html" method="get">
+    <!-- 必要に応じて注文内容の確認情報をここに表示 -->
+    
+    <div class="form-buttons">
+      <button type="button" id="backToCart" onclick="location.href='jiso.html'">お客様情報に戻る</button>
+      <button type="submit">注文を確定する</button>
+    </div>
+  </form>
+
+  <script>
+    document.getElementById("step-confirm").classList.add("active");
+  </script>
+</body>
+</html>

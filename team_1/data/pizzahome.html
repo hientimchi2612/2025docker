@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ピザの注文フォーム</title>
+  <link rel="stylesheet" href="pizza.css">
+  <style>
+   
+   /* Side Cart */
+#sideCart {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 180px;
+  max-height: 40vh;
+  padding: 10px;
+  border: 2px solid #ff6600;
+  border-radius: 10px;
+  background-color: #fff8f0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+#sideCart h3, #sideCart p {
+  margin-top: 0;
+  font-size: 1.2em;
+  text-align: center;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#cartContent .cart-item {
+  margin-bottom: 10px;
+  font-size: 1em;
+  line-height: 0.8em;
+}
+
+#sideTotal {
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  margin-bottom: 10px;
+}
+
+
+@media (max-width: 600px) {
+  #sideCart {
+    position: static;
+    width: 90%;
+    margin: 20px auto;
+    max-height: none;
+    padding: 15px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <img src="logo.png" alt="ピザロゴ" class="logo">
+      <p class="name">ピザマッハ</p>
+    </div>
+    <p class="cart">🛒 <span class="cart-count">0</span></p>
+  </header>
+
+  <form id="orderForm" action="katto.html" method="GET">
+    <div id="sideCart">
+  <h3>🛒 注文カート</h3>
+  <div id="cartContent"></div>
+  <p><strong>合計: <span id="sideTotal">0</span>円 </strong></p>
+</div>
+
+
+    <!-- 🍕 マルゲリータ -->
+    <div class="pizza-card">
+      <img src="marugerrito.jpg" alt="マルゲリータピザ" class="pizza-image">
+      <div class="pizza-info">
+        <h3 class="item-name">マルゲリータ S サイズ 15cm</h3>
+        <p class="item-detail">新鮮なトマトソース、モッツァレラチーズ、バジル</p>
+        <p class="item-price" data-price="1500">1,500円</p>
+        <div class="quantity">
+          <button type="button" class="dec" aria-label="数量を減らす">-</button>
+          <input class="qty" name="quantity1" type="number" value="0" min="0" aria-label="数量">
+          <button type="button" class="inc" aria-label="数量を増やす">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🍅 トマトピザ -->
+    <div class="pizza-card">
+      <img src="tomato.jpg" alt="トマトピザ" class="pizza-image">
+      <div class="pizza-info">
+        <h3 class="item-name">トマトピザ M サイズ 20cm</h3>
+        <p class="item-detail">トマトソースとモッツァレラチーズの絶妙な味わい</p>
+        <p class="item-price" data-price="1860">1,860円</p>
+        <div class="quantity">
+          <button type="button" class="dec">-</button>
+          <input class="qty" name="quantity2" type="number" value="0" min="0">
+          <button type="button" class="inc">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🧀 チーズピザ -->
+    <div class="pizza-card">
+      <img src="chisse.jpg" alt="チーズピザ" class="pizza-image">
+      <div class="pizza-info">
+        <h3 class="item-name">チーズピザ L サイズ 24cm</h3>
+        <p class="item-detail">濃厚なチーズの香りととろける食感</p>
+        <p class="item-price" data-price="1500">1,500円</p>
+        <div class="quantity">
+          <button type="button" class="dec">-</button>
+          <input class="qty" name="quantity3" type="number" value="0" min="0">
+          <button type="button" class="inc">+</button>
+        </div>
+      </div>
+    </div>
+
+    
+
+  </form>
+  <p class="total-row">合計金額: <span id="total">0</span>円</p>
+  <input type="hidden" name="totalPrice" id="totalPriceInput">
+    
+  
+    <input type="submit" value="カートに追加・注文へ進む ➞" class="add-to-cart"  form="orderForm">
+
+  <script src="script.js">
+
+  </script>
+  
+  
+</body>
+</html>
