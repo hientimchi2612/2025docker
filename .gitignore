@@ -7,3 +7,4 @@ __pycache__/
 .env/
 .docker/
 *.pyc
+team_1/app/admin/user.php
