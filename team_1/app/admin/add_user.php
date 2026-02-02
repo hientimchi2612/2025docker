@@ -53,9 +53,33 @@
     </div>
   </div>
 <div class="btns">
-  <button>キャンセル</button>
-  <button class="primary">追加</button>
+  <button onclick="cancelBtn()">キャンセル</button>
+  <button type="button" class="primary">追加</button>
     </div>
   </div>
+  <script>
+    function togglePw() {
+      const pwInput = document.getElementById('pw');
+      if (pwInput.type === 'password') {
+        pwInput.type = 'text';
+      } else {
+        pwInput.type = 'password';
+      }
+    }
+    function primaryBtn() {
+      const btn = document.querySelector('.primary');
+      btn.style.backgroundColor = '#4CAF50';
+      btn.style.color = 'white';
+      alert('ユーザーが正常に追加されました！');
+      left.location.href = 'user.php';
+    }
+    document.querySelector('.primary').addEventListener('click', primaryBtn);
+    function cancelBtn() {
+      const btn = document.querySelector('.btns button:first-child');
+      btn.style.backgroundColor = '#f44336';
+      btn.style.color = 'white';
+    }
+    
+  </script>
 </body>
 </html>

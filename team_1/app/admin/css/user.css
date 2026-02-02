@@ -9,10 +9,11 @@ body {
 }
 
 header {
-  background: #35424a;
-  color: #fff;
+  background: #f4f4f4;;
+  color: #333;
   padding: 15px;
-  text-align: center;
+  text-align: left;
+  padding-left: 200px;
 }
 
 /* ============================================
