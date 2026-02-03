@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /**
  * Admin panel - Store management page
  * 
@@ -448,18 +449,27 @@ if ($res) {
     }
     $res->free();
 }
+=======
+$dbh = new PDO('mysql:host=db;dbname=pizza_shop;charset=utf8', 'root', 'rootpassword'); 
+
+>>>>>>> 93d2f4b4b7c79934a0df5d128d24cd59a4d4e6ee
 ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <title>管理パネル</title>
+<<<<<<< HEAD
 <link rel="stylesheet" href="css/kanri.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+=======
+<link rel="stylesheet" href="kanri.css">
+>>>>>>> 93d2f4b4b7c79934a0df5d128d24cd59a4d4e6ee
 </head>
 <body>
 
 <div class="layout">
+<<<<<<< HEAD
     <h2 class="logo">管理パネル</h2>
 
     <main class="content">
@@ -491,10 +501,21 @@ if ($res) {
             <div class="flash err"><?= h($flashErr) ?></div>
         <?php endif; ?>
 
+=======
+
+    
+
+        <h2 class="logo">◆ 管理パネル</h2>
+    <!-- Main -->
+    <main class="content">
+        <h1>設定</h1>
+
+>>>>>>> 93d2f4b4b7c79934a0df5d128d24cd59a4d4e6ee
         <!-- 営業時間 -->
         <section class="card">
             <h2>営業時間・ラストオーダー設定</h2>
 
+<<<<<<< HEAD
             <form method="post">
                 <input type="hidden" name="action" value="save_store_hours">
 
@@ -567,17 +588,68 @@ if ($res) {
         <!-- 商品設定 -->
         <section class="card">
             <h2>商品設定</h2>
+=======
+            <div class="row">
+                <div>
+                    <label>開店時間</label>
+                    <input type="time" value="11:00">
+                </div>
+                <div>
+                    <label>閉店時間</label>
+                    <input type="time" value="22:00">
+                </div>
+                <div>
+                    <label>ラストオーダー</label>
+                    <input type="time" value="21:30">
+                </div>
+            </div>
+
+            <div class="form-footer">
+                <button class="btn-save">保存</button>
+            </div>
+        </section>
+
+        <!-- シフト -->
+        <section class="card">
+            <h2>シフト時間設定</h2>
+
+            <h3>🌞 早番</h3>
+            <div class="row">
+                <input type="time" value="09:00">
+                <input type="time" value="13:00">
+            </div>
+
+            <h3>🌙 遅番</h3>
+            <div class="row">
+                <input type="time" value="14:00">
+                <input type="time" value="23:00">
+            </div>
+
+            <div class="form-footer">
+                <button class="btn-save">保存</button>
+            </div>
+        </section>
+
+        <!-- ピザ価格 -->
+        <section class="card">
+            <h2>ピザ価格設定</h2>
+>>>>>>> 93d2f4b4b7c79934a0df5d128d24cd59a4d4e6ee
 
             <table>
                 <thead>
                     <tr>
+<<<<<<< HEAD
                         <th>商品</th>
+=======
+                        <th>ピザ</th>
+>>>>>>> 93d2f4b4b7c79934a0df5d128d24cd59a4d4e6ee
                         <th>Sサイズ</th>
                         <th>Mサイズ</th>
                         <th>Lサイズ</th>
                         <th>操作</th>
                     </tr>
                 </thead>
+<<<<<<< HEAD
                 <tbody id="menu-tbody">
                     <?php foreach ($menuItems as $item): $mid = (int)$item['id']; 
                         // Добавляем timestamp для обхода кэша при обновлении изображения
@@ -633,10 +705,43 @@ if ($res) {
             </table>
 
             <a href="add_menu_item.php" class="btn-add" style="text-decoration: none; display: inline-block;">＋ 追加</a>
+=======
+                <tbody>
+                    <tr>
+                        <td><input type="text" value=" "></td>
+                        <td><input class="price" value=" "></td>
+                        <td><input class="price" value=" "></td>
+                        <td><input class="price" value=" "></td>
+                         <td class="actions">
+        <button class="btn-save-mini">保存</button>
+        <button class="btn-delete">削除</button>
+            </td>
+                        
+                    </tr>
+                    <tr>
+                        <td><input type="text" value=" "></td>
+                        <td><input class="price" value=" "></td>
+                        <td><input class="price" value=" "></td>
+                        <td><input class="price" value=" "></td>
+                        <td class="actions">
+        <button class="btn-save-mini">保存</button>
+        <button class="btn-delete">削除</button>
+            </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button class="btn-add">＋ 追加</button>
+
+            <div class="form-footer">
+                <button class="btn-save">保存</button>
+            </div>
+>>>>>>> 93d2f4b4b7c79934a0df5d128d24cd59a4d4e6ee
         </section>
 
     </main>
 </div>
+<<<<<<< HEAD
 
 <!-- Модалка для загрузки изображения -->
 <div id="upload-modal" class="modal" style="display:none;">
@@ -891,5 +996,40 @@ function handleImageUpload(event) {
 }
 </script>
 
+=======
+<script>
+    document.querySelector('.btn-add').addEventListener('click', function() {
+        const tbody = document.querySelector('table tbody');
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td><input type="text" value=" "></td>
+            <td><input class="price" value=" "></td>
+            <td><input class="price" value=" "></td>
+            <td><input class="price" value=" "></td>
+            <td class="actions">
+                <button class="btn-save-mini">保存</button>
+                <button class="btn-delete">削除</button>
+            </td>
+        `;
+        tbody.appendChild(newRow);
+    });
+    document.querySelector('table tbody').addEventListener('click', function(e) {
+        if (e.target.classList.contains('btn-delete')) {
+            const row = e.target.closest('tr');
+            row.remove();
+        }
+    });
+    document.querySelectorAll('.btn-save-mini').forEach(function(button) {
+        button.addEventListener('click', function() {
+            alert('保存されました');
+        });
+    });
+    document.querySelectorAll('.btn-save').forEach(function(button) {
+        button.addEventListener('click', function() {
+            alert('保存されました');
+        });
+    });
+</script>
+>>>>>>> 93d2f4b4b7c79934a0df5d128d24cd59a4d4e6ee
 </body>
 </html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カットの注文フォーム</title>
+  <link rel="stylesheet" href="pizza.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1, h2 {
+      color: #333;
+      text-align: center;
+    }
+    form {
+      max-width: 600px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="text"], input[type="tel"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+
+    
+  </style>
+</head>
+<body>
+  <div class="steps">
+  <div class="step" id="step-cart">カート</div>
+  <div class="step" id="step-info">お客様の情報</div>
+    <div class="step" id="step-confirm">確認</div>
+  <div class="step" id="step-pay">お支払い</div>
+  <div class="step" id="step-done">注文完了</div>
+</div>
+
+  <form id="lastform">
+    <h2>お客様情報</h2>
+    <label for="name">お名前:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="phone">電話番号:</label>
+    <input type="tel" id="phone" name="phone" pattern="[0-9]{10,11}" required placeholder="例: 09012345678">
+
+    <h2>お届け先情報</h2>
+    <label for="postcode">郵便番号:</label>
+    <input type="text" id="postcode" name="postcode" pattern="[0-9]{7}" required placeholder="例: 1234567">
+    <button type="button" id="searchAddress">住所検索</button>
+
+    <label for="address">住所:</label>
+    <input type="text" id="address" name="address" required>
+
+    <label for="building">建物名・部屋番号:</label>
+    <input type="text" id="building" name="building">
+
+    
+  </form>
+  <div class="form-buttons">
+      <button type="submit" id="checkout">注文を確定する</button>
+      <button type="button" id="backToCart" onclick="location.href='katto.html'">カートに戻る</button>
+    </div>
+
+  <script>
+    document.getElementById("step-info").classList.add("active");
+
+    // 郵便番号で住所を自動入力する（ZipCloud API利用例）
+    document.getElementById("searchAddress").addEventListener("click", async () => {
+      const postcode = document.getElementById("postcode").value;
+      if (!postcode.match(/^[0-9]{7}$/)) {
+        alert("正しい郵便番号を入力してください（例：1234567）");
+        return;
+      }
+
+      const res = await fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${postcode}`);
+      const data = await res.json();
+
+      if (data.results) {
+        const info = data.results[0];
+        document.getElementById("address").value = info.address1 + info.address2 + info.address3;
+      } else {
+        alert("住所が見つかりませんでした。");
+      }
+    });
+
+   
+    document.getElementById("orderForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("ご注文ありがとうございました！\n注文が確定しました。");
+      localStorage.removeItem("cart"); 
+      location.href = "thanks.html"; 
+    });
+  </script>
+</body>
+</html>

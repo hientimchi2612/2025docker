@@ -1,0 +1,133 @@
+@charset "UTF-8";
+* {
+    box-sizing: border-box;
+    font-family: system-ui, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f5f6f8;
+}
+
+/* Layout */
+.layout {
+    display: flex;
+}
+
+
+
+@media (max-width: 600px) {
+    .layout {
+        flex-direction: column;
+    }
+}
+/* Content */
+.content {
+    flex: 1;
+    padding: 24px;
+}
+
+h1 {
+    margin-bottom: 16px;
+}
+
+/* Card */
+.card {
+    background: #fff;
+    padding: 16px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    font-size: 15px;
+    margin-bottom: 12px;
+    border-left: 4px solid #2563eb;
+    padding-left: 8px;
+}
+
+.card h3 {
+    font-size: 13px;
+    margin: 12px 0 6px;
+}
+
+/* Form */
+.row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 12px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+input {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Footer */
+.form-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+/* Buttons */
+.btn-save {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-delete {
+    background: none;
+    color: #dc2626;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-add {
+    margin-top: 8px;
+    padding: 4px 10px;
+    border: 1px solid #2563eb;
+    background: #fff;
+    color: #2563eb;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+th {
+    text-align: left;
+    font-size: 12px;
+    color: #555;
+}
+
+td {
+    padding: 6px 4px;
+}
+
+.price {
+    width: 80px;
+    text-align: right;
+}
+.status {
+    width: 100px;
+    text-align: center;
+}

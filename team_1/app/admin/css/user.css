@@ -1,85 +1,89 @@
-/* ============================================
-   General Styles
-   ============================================ */
+@charset "UTF-8";
 
+/* ===== Body ===== */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f4f4f4;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
 }
 
-header {
-  background: #f4f4f4;;
-  color: #333;
-  padding: 15px;
-  text-align: left;
-  padding-left: 200px;
+/* ===== Header ===== */
+.header {
+    position: relative;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
 }
 
-/* ============================================
-   Container & Layout
-   ============================================ */
+.header h1 {
+    margin: 0;
+    font-size: 22px;
+}
 
+/* ===== Back button ===== */
+.admin {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ===== Main container ===== */
 .container {
-  max-width: 1000px;
-  margin: 20px auto;
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
 }
 
-/* ============================================
-   Search Box
-   ============================================ */
-
-.searchBox {
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+/* ===== Action bar ===== */
+.action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .searchBox input {
-  width: 300px;
-  padding: 8px;
+    padding: 6px;
 }
 
-/* ============================================
-   Buttons
-   ============================================ */
-
-.link-btn {
-  padding: 8px 14px;
-  background: #eee;
-  border-radius: 6px;
-  text-decoration: none;
-  color: #000;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s ease;
+.searchBox button {
+    padding: 6px 12px;
+    margin-left: 5px;
 }
 
-button.link-btn:hover,
-a.link-btn:hover {
-  background: #a5ad5d;
-  color: #fff;
+.add-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 14px;
+    text-decoration: none;
+    border-radius: 4px;
 }
 
-/* ============================================
-   Table Styles
-   ============================================ */
-
+/* ===== Table ===== */
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
+    width: 100%;
+    border-collapse: collapse;
 }
 
-th,
-td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: center;
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
 }
 
-    
+th {
+    background-color: #f2f2f2;
+}
+

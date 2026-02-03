@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>カート</title>
+<link rel="stylesheet" href="pizza.css">
+
+</head>
+<body>
+
+<header class="header">
+  <div class="brand">
+    <img src="logo.png" alt="ピザロゴ">
+    <span>ピザマッハ</span>
+  </div>
+  <p class="cart">🛒 <span class="cart-count">0</span></p>
+</header>
+
+<div class="steps">
+  <div class="step active">カート</div>
+  <div class="step">お客様情報</div>
+  <div class="step">確認</div>
+  <div class="step">お支払い</div>
+  <div class="step">注文完了</div>
+</div>
+
+<div class="cart-container">
+  <div class="cart-items"></div>
+
+  <div class="cart-total">
+    <p>小計: <span id="subtotal">0円</span></p>
+    <p>消費税(10%): <span id="tax">0円</span></p>
+    <p>送料: <span id="shipping">300円</span></p>
+    <h3>合計: <span class="total-price">0円</span></h3>
+  </div>
+</div>
+
+
+<div class="form-buttons">
+  <button type="button" id="backToCart" onclick="location.href='pizza.html'">ピザメニューに戻る</button>
+      <button type="submit" id="checkout">注文を確定する➞</button>
+
+    </div>
+<script>
+function loadCart() {
+  const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+  const cartContainer = document.querySelector('.cart-items');
+  const cartCount = document.querySelector('.cart-count');
+  const subtotalEl = document.getElementById('subtotal');
+  const taxEl = document.getElementById('tax');
+  const shippingEl = document.getElementById('shipping');
+  const totalEl = document.querySelector('.total-price');
+
+  cartContainer.innerHTML = '';
+  let subtotal = 0;
+  const shipping = 300;
+
+  cartItems.forEach((item, index) => {
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+
+
+    const img = document.createElement('img');
+    img.src = item.imgSrc;
+    img.alt = item.name;
+
+ 
+    const info = document.createElement('div');
+    info.className = 'info';
+    info.innerHTML = `<strong>${item.name}</strong><br>${item.price}円`;
+
+   
+    const qtyWrapper = document.createElement('div');
+    qtyWrapper.style.display = 'flex';
+    qtyWrapper.style.alignItems = 'center';
+    qtyWrapper.style.gap = '5px';
+
+    const decBtn = document.createElement('button');
+    decBtn.textContent = '-';
+    decBtn.addEventListener('click', () => {
+      item.quantity = Math.max(0, item.quantity - 1);
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      loadCart();
+    });
+
+    const qtyInput = document.createElement('input');
+    qtyInput.type = 'number';
+    qtyInput.min = 0;
+    qtyInput.value = item.quantity;
+    qtyInput.style.width = '50px';
+    qtyInput.addEventListener('change', () => {
+      if (qtyInput.value < 0) qtyInput.value = 0;
+      item.quantity = parseInt(qtyInput.value);
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      loadCart();
+    });
+
+    const incBtn = document.createElement('button');
+    incBtn.textContent = '+';
+    incBtn.addEventListener('click', () => {
+      item.quantity += 1;
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      loadCart();
+    });
+
+    qtyWrapper.appendChild(decBtn);
+    qtyWrapper.appendChild(qtyInput);
+    qtyWrapper.appendChild(incBtn);
+
+    // Subtotal item
+    const subtotalItem = document.createElement('span');
+    subtotalItem.textContent = `${item.price * item.quantity}円`;
+    subtotalItem.style.width = '80px';
+    subtotalItem.style.textAlign = 'right';
+    subtotalItem.style.marginRight = '10px';
+
+    // Delete button
+    const delBtn = document.createElement('button');
+    delBtn.textContent = '削除';
+    delBtn.addEventListener('click', () => {
+      cartItems.splice(index, 1);
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      loadCart();
+    });
+
+    div.appendChild(img);
+    div.appendChild(info);
+    div.appendChild(qtyWrapper);
+    div.appendChild(subtotalItem);
+    div.appendChild(delBtn);
+
+    cartContainer.appendChild(div);
+
+    subtotal += item.price * item.quantity;
+  });
+
+  const tax = Math.floor(subtotal * 0.1);
+  const total = subtotal + tax + shipping;
+
+  subtotalEl.textContent = subtotal + '円';
+  taxEl.textContent = tax + '円';
+  shippingEl.textContent = shipping + '円';
+  totalEl.textContent = total + '円';
+
+  cartCount.textContent = cartItems.reduce((sum, i) => sum + i.quantity, 0);
+}
+
+document.addEventListener('DOMContentLoaded', loadCart);
+document.getElementById("checkout").addEventListener("click", () => {
+  window.location.href = 'jiso.html';
+});
+</script>
+
+</body>
+</html>
