@@ -11,8 +11,9 @@
 
 <header class="header">
     <h1>ユーザー管理画面</h1>
-    <button class="admin" onclick="location.href='admin.php'">戻る</button>
 </header>
+    <button class="admin" onclick="location.href='admin.php'">戻る</button>
+
 
 <div class="container">
 
