@@ -14,15 +14,13 @@ body {
     background-color: #fff;
     color: #000;
     padding: 15px 0;
-    text-align: center;
+    text-align: left;
 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .h1{
     left: 35px;
     color: #000;
-    font-size: auto;
-    
 }
 
 /* ===== Back button ===== */
